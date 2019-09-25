@@ -1,0 +1,14 @@
+[package]
+name = "async_fs"
+version = "0.0.1"
+authors = ["Amir Absolutely <mr.amirka@ya.ru>"]
+
+[dependencies]
+lazy_static = "*"
+tokio = "*"
+futures = "*"
+futures-cpupool = "*"
+bytes = "*"
+
+
+[build-dependencies]
