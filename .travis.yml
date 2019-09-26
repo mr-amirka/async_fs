@@ -13,9 +13,8 @@ before_install:
 
 script:
   # Запуск тестов
-  - cd ./app && cargo test
-  - cd ..
-  - sudo kcov --exclude-pattern=/.cargo,/usr/lib --verify ./app/target/cov ./app/target/debug/async_fs-*
+  - cargo test
+  - sudo kcov --exclude-pattern=/.cargo,/usr/lib --verify ./target/cov ./target/debug/async_fs-*
 
 notifications:
   email:
