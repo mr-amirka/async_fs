@@ -14,7 +14,7 @@ before_install:
 script:
   # Запуск тестов
   - cargo test
-  - for file in target/debug/async_fs-*; do [ -x "${file}" ] || continue; sodo mkdir -p "target/cov/$(basename $file)"; sudo kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file"; done && sudo bash <(curl -s https://codecov.io/bash)
+  - sudo bash ./coverage.sh
 
 notifications:
   email:
