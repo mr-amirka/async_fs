@@ -1,0 +1,25 @@
+language: rust
+rust:
+  - nightly
+os: linux
+dist: xenial
+
+cache: cargo
+
+sudo: required
+
+before_install:
+  - sudo bash ./kcov-install.sh
+
+script:
+  # Запуск тестов
+  - cd ./app && cargo test
+  - cd ..
+  - sudo kcov --exclude-pattern=/.cargo,/usr/lib --verify ./app/target/cov ./app/target/debug/async_fs-*
+
+notifications:
+  email:
+    - mr.amirka@ya.ru
+  slack:
+    on_success: always
+    on_failure: always
